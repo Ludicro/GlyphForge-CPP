@@ -1,0 +1,19 @@
+# Build directories
+build/
+bin/
+lib/
+
+# IDE specific
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Compiled files
+*.o
+*.exe
+*.dll
+*.so
+
+# Generated resources
+*.bin

@@ -1,0 +1,82 @@
+{
+    "levels": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    "schools": [
+        "None",
+        "Abjuration",
+        "Conjuration",
+        "Divination",
+        "Enchantment",
+        "Evocation",
+        "Illusion",
+        "Necromancy",
+        "Transmutation"
+    ],
+    "durations": [
+        "Instantaneous",
+        "1 round",
+        "1 minute",
+        "10 minutes",
+        "1 hour",
+        "8 hours",
+        "24 hours",
+        "Until dispelled"
+    ],
+    "ranges": [
+        "None",
+        "Self",
+        "Touch",
+        "10 feet",
+        "30 feet",
+        "60 feet",
+        "90 feet",
+        "120 feet",
+        "150 feet",
+        "300 feet",
+        "500 feet",
+        "1 mile",
+        "Sight",
+        "Unlimited"
+    ],
+    "area_types": [
+        "None",
+        "Cone",
+        "Cube",
+        "Cylinder",
+        "Line",
+        "Sphere",
+        "Wall"
+    ],
+    "damage_types": [
+        "None",
+        "Acid",
+        "Bludgeoning",
+        "Cold",
+        "Fire",
+        "Force",
+        "Lightning",
+        "Necrotic",
+        "Piercing",
+        "Poison",
+        "Psychic",
+        "Radiant",
+        "Slashing",
+        "Thunder"
+    ],
+    "conditions": [
+        "None",
+        "Blinded",
+        "Charmed",
+        "Deafened",
+        "Frightened",
+        "Grappled",
+        "Incapacitated",
+        "Invisible",
+        "Paralyzed",
+        "Petrified",
+        "Poisoned",
+        "Prone",
+        "Restrained",
+        "Stunned",
+        "Unconscious"
+    ]
+}
