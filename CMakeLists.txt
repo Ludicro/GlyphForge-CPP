@@ -41,3 +41,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 
 # Copy resources to build directory
 file(COPY resources DESTINATION ${CMAKE_BINARY_DIR})
+
+set(SFML_DIR "C:/SFML/lib/cmake/SFML")
