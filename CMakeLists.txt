@@ -43,3 +43,18 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 file(COPY resources DESTINATION ${CMAKE_BINARY_DIR})
 
 set(SFML_DIR "C:/SFML/lib/cmake/SFML")
+
+set(SOURCES
+    ${SOURCES}
+    vendor/imgui/imgui.cpp
+    vendor/imgui/imgui_draw.cpp
+    vendor/imgui/imgui_widgets.cpp
+    vendor/imgui/imgui_tables.cpp
+    vendor/imgui/imgui_demo.cpp
+    vendor/imgui-sfml/imgui-SFML.cpp
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    vendor/imgui
+    vendor/imgui-sfml
+)
