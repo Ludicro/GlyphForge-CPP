@@ -2200,86 +2200,101 @@ Finished loading combinations
 
 === Getting Attribute Indices ===
 Input parameters:
-Level: 3
-Range: 150 feet
-Area: sphere (20)
-Damage Type: Fire
-School: Evocation
-Duration: Instantaneous
-Condition: None
-Generated indices: 4 5 0 5 18 4 0 
-Attribute Indices: 4 5 0 5 18 4 0 
+Level: 0
+School: 1 mile
+Duration: cone (15)
+Range: Acid
+Area Type: Abjuration
+Damage Type: 1 hour
+Condition: Blinded
+Generated indices: 1 9 13 18 20 15 1 
+Attribute Indices: 1 9 13 18 20 15 1 
 
 Input Array Contents:
-Array 0: 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 
-Array 1: 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
-Array 2: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Array 3: 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
-Array 4: 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 
-Array 5: 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 
-Array 6: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Array 0: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Array 1: 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+Array 2: 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 
+Array 3: 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 
+Array 4: 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 
+Array 5: 1 0 1 1 1 0 0 0 0 0 0 0 0 0 0 
+Array 6: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 
 RenderTexture created and cleared
 
 Base Points (polygon):
-Point 0: (0.207912,0.978148)
-Point 1: (0.587785,0.809017)
-Point 2: (0.866025,0.5)
-Point 3: (0.994522,0.104528)
-Point 4: (0.951057,-0.309017)
-Point 5: (0.743145,-0.669131)
-Point 6: (0.406737,-0.913545)
-Point 7: (1.22461e-16,-1)
-Point 8: (-0.406737,-0.913545)
-Point 9: (-0.743145,-0.669131)
-Point 10: (-0.951057,-0.309017)
-Point 11: (-0.994522,0.104528)
-Point 12: (-0.866025,0.5)
-Point 13: (-0.587785,0.809017)
-Point 14: (-0.207912,0.978148)
+Point 0: (0.587785,-0.809017)
+Point 1: (0.866025,-0.5)
+Point 2: (0.994522,-0.104528)
+Point 3: (0.951057,0.309017)
+Point 4: (0.743145,0.669131)
+Point 5: (0.406737,0.913545)
+Point 6: (-1.22461e-16,1)
+Point 7: (-0.406737,0.913545)
+Point 8: (-0.743145,0.669131)
+Point 9: (-0.951057,0.309017)
+Point 10: (-0.994522,-0.104528)
+Point 11: (-0.866025,-0.5)
+Point 12: (-0.587785,-0.809017)
+Point 13: (-0.207912,-0.978148)
+Point 14: (0.207912,-0.978148)
 
 Transformation values:
 Scale: 300
 Offset X: 400
 Offset Y: 400
 
-Drawing line from (462.374,693.444) to (576.336,642.705)
+Drawing line from (576.336,157.295) to (659.808,250)
 Generated 2 line points
 
-Drawing line from (576.336,642.705) to (659.808,550)
+Drawing line from (576.336,157.295) to (698.357,368.641)
 Generated 2 line points
 
-Drawing line from (659.808,550) to (698.357,431.359)
+Drawing line from (622.943,600.739) to (400,700)
 Generated 2 line points
 
-Drawing line from (462.374,693.444) to (659.808,550)
+Drawing line from (576.336,157.295) to (685.317,492.705)
 Generated 2 line points
 
-Drawing line from (698.357,431.359) to (622.943,199.261)
+Drawing line from (685.317,492.705) to (400,700)
 Generated 2 line points
 
-Drawing line from (462.374,693.444) to (685.317,307.295)
+Drawing line from (622.943,600.739) to (277.979,674.064)
 Generated 2 line points
 
-Drawing line from (698.357,431.359) to (400,100)
+Drawing line from (576.336,157.295) to (622.943,600.739)
 Generated 2 line points
 
-Drawing line from (462.374,693.444) to (622.943,199.261)
+Drawing line from (659.808,250) to (522.021,674.064)
 Generated 2 line points
 
-Drawing line from (576.336,642.705) to (522.021,125.936)
+Drawing line from (522.021,674.064) to (114.683,492.705)
 Generated 2 line points
 
-Drawing line from (622.943,199.261) to (114.683,307.295)
+Drawing line from (576.336,157.295) to (522.021,674.064)
 Generated 2 line points
 
-Drawing line from (462.374,693.444) to (522.021,125.936)
+Drawing line from (659.808,250) to (400,700)
 Generated 2 line points
 
-Drawing line from (576.336,642.705) to (400,100)
+Drawing line from (698.357,368.641) to (277.979,674.064)
 Generated 2 line points
 
-Drawing line from (659.808,550) to (277.979,125.936)
+Drawing line from (522.021,674.064) to (101.643,368.641)
+Generated 2 line points
+
+Drawing line from (576.336,157.295) to (400,700)
+Generated 2 line points
+
+Drawing line from (698.357,368.641) to (177.057,600.739)
+Generated 2 line points
+
+Drawing line from (685.317,492.705) to (114.683,492.705)
+Generated 2 line points
+
+Drawing line from (622.943,600.739) to (101.643,368.641)
+Generated 2 line points
+
+Drawing line from (576.336,157.295) to (277.979,674.064)
 Generated 2 line points
 
 Saved image to: output.png

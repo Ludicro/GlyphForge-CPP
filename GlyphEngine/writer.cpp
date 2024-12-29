@@ -3,16 +3,21 @@
 #include <algorithm>
 #include <SFML/Graphics.hpp>
 
+// This is the constructor for the GlyphWriter class
 GlyphWriter::GlyphWriter(const std::string& combinations_file) {
+    // Debugging
     debug_file.open("glyph_debug.log");
     debug_file << "Starting GlyphWriter initialization..." << std::endl;
     
+    // Load the unique combinations from the file
     std::string path = "GlyphEngine/unique_combinations.bin";
     debug_file << "Loading combinations from: " << path << std::endl;
     load_combinations(path);
 }
 
+// Load the unique combinations that have been pre-generated
 void GlyphWriter::load_combinations(const std::string& filename) {
+    // Debugging
     debug_file << "Opening file: " << filename << std::endl;
     std::ifstream file(filename, std::ios::binary);
     
@@ -21,6 +26,7 @@ void GlyphWriter::load_combinations(const std::string& filename) {
         return;
     }
     
+    // Read the unique combinations
     size_t size;
     file.read(reinterpret_cast<char*>(&size), sizeof(size));
     debug_file << "Reading " << size << " combinations" << std::endl;
@@ -41,21 +47,21 @@ void GlyphWriter::load_combinations(const std::string& filename) {
 
 std::vector<int> GlyphWriter::get_attribute_indices(
     int level,
+    const std::string& school,
+    const std::string& duration,
     const std::string& range,
     const std::string& area,
     const std::string& damage_type,
-    const std::string& school,
-    const std::string& duration,
     const std::string& condition
 ) {
     debug_file << "\n=== Getting Attribute Indices ===" << std::endl;
     debug_file << "Input parameters:" << std::endl;
     debug_file << "Level: " << level << std::endl;
-    debug_file << "Range: " << range << std::endl;
-    debug_file << "Area: " << area << std::endl;
-    debug_file << "Damage Type: " << damage_type << std::endl;
     debug_file << "School: " << school << std::endl;
     debug_file << "Duration: " << duration << std::endl;
+    debug_file << "Range: " << range << std::endl;
+    debug_file << "Area Type: " << area << std::endl;
+    debug_file << "Damage Type: " << damage_type << std::endl;
     debug_file << "Condition: " << condition << std::endl;
 
     std::vector<int> indices;
@@ -84,11 +90,11 @@ std::vector<int> GlyphWriter::get_attribute_indices(
 
 void GlyphWriter::draw_spell(
     int level,
+    const std::string& school,
+    const std::string& duration,
     const std::string& range,
     const std::string& area,
     const std::string& damage_type,
-    const std::string& school,
-    const std::string& duration,
     const std::string& condition,
     bool concentration,
     bool ritual,
@@ -97,6 +103,17 @@ void GlyphWriter::draw_spell(
     const std::string& output_file
 ) {
     debug_file << "\n=== Starting draw_spell ===" << std::endl;
+    
+    // Define colors for each attribute type
+    std::vector<sf::Color> attributeColors = {
+        sf::Color(128, 0, 128),    // Level - Dark Purple
+        sf::Color(0, 0, 255),      // School - Blue
+        sf::Color(0, 128, 128),    // Duration - Teal
+        sf::Color(57, 255, 20),    // Range - Neon Green
+        sf::Color(204, 204, 0),    // Area Type - Dark Yellow
+        sf::Color(255, 165, 0),    // Damage Type - Orange
+        sf::Color(255, 0, 0)       // Condition - Red
+    };
     
     auto indices = get_attribute_indices(level, range, area, damage_type, school, duration, condition);
     debug_file << "Attribute Indices: ";
@@ -149,12 +166,36 @@ void GlyphWriter::draw_spell(
     float scale = 300.0f;
     float offsetX = 400.0f;
     float offsetY = 400.0f;
+    float lineThickness = 3.0f;  // Configurable line thickness
 
     debug_file << "\nTransformation values:" << std::endl;
     debug_file << "Scale: " << scale << std::endl;
     debug_file << "Offset X: " << offsetX << std::endl;
     debug_file << "Offset Y: " << offsetY << std::endl;
 
+    // Draw base points first
+    sf::CircleShape basePoint(5);
+    sf::CircleShape firstPoint(5);
+    firstPoint.setFillColor(sf::Color::Black);
+
+    // Draw first point solid
+    float x = base_points.first[0] * scale + offsetX;
+    float y = base_points.second[0] * scale + offsetY;
+    firstPoint.setPosition(sf::Vector2f(x - 5, y - 5));
+    renderTexture.draw(firstPoint);
+
+    // Draw remaining points as hollow circles
+    for(size_t i = 1; i < base_points.first.size(); i++) {
+        float x = base_points.first[i] * scale + offsetX;
+        float y = base_points.second[i] * scale + offsetY;
+        basePoint.setFillColor(sf::Color::Transparent);
+        basePoint.setOutlineColor(sf::Color::Black);
+        basePoint.setOutlineThickness(2);
+        basePoint.setPosition(sf::Vector2f(x - 5, y - 5));
+        renderTexture.draw(basePoint);
+    }
+
+    // Draw the connections with colors
     for(size_t i = 0; i < input_array.size(); i++) {
         for(size_t j = 0; j < input_array[i].size(); j++) {
             if(input_array[i][j] == 1) {
@@ -184,15 +225,21 @@ void GlyphWriter::draw_spell(
 
                 debug_file << "Generated " << line_points.first.size() << " line points" << std::endl;
 
-                sf::VertexArray line(sf::LineStrip, line_points.first.size());
-                for(size_t k = 0; k < line_points.first.size(); k++) {
-                    line[k].position = sf::Vector2f(
-                        static_cast<float>(line_points.first[k]), 
-                        static_cast<float>(line_points.second[k])
-                    );
-                    line[k].color = sf::Color::Black;
+                // Draw thick lines using rectangles
+                for(size_t k = 0; k < line_points.first.size() - 1; k++) {
+                    float dx = line_points.first[k+1] - line_points.first[k];
+                    float dy = line_points.second[k+1] - line_points.second[k];
+                    float length = std::sqrt(dx*dx + dy*dy);
+
+                    sf::RectangleShape line(sf::Vector2f(length, lineThickness));
+                    line.setPosition(line_points.first[k], line_points.second[k]);
+                    line.setFillColor(attributeColors[i]);
+                    
+                    float angle = std::atan2(dy, dx) * 180 / M_PI;
+                    line.setRotation(angle);
+                    
+                    renderTexture.draw(line);
                 }
-                renderTexture.draw(line);
             }
         }
     }

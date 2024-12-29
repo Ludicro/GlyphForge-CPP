@@ -10,19 +10,20 @@ namespace bases {
 //   start_angle: initial angle in radians (default = -1)
 Point2D polygon(int n, double radius, double start_angle) {
     std::vector<double> x(n), y(n);
-    
+
     // If no start angle specified, use PI/n
     if (start_angle < 0) {
         start_angle = M_PI / n;
     }
-    
-    // Calculate vertex positions using polar coordinates
+
+    // Add 2/15 of a full circle to shift starting point
+    double offset = 2 * 2 * M_PI / n;
+
     for (int i = 0; i < n; i++) {
-        double angle = start_angle + i * 2 * M_PI / n;
-        x[i] = radius * sin(angle);
-        y[i] = radius * cos(angle);
+        double angle = -(start_angle + (n - i) * 2 * M_PI / n) + offset;
+        x[i] = radius * std::sin(angle);
+        y[i] = -radius * std::cos(angle);
     }
-    
     return {x, y};
 }
 
