@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <vector>
-#include <fstream>  // Add this for debug file
+#include <fstream>
 
 class GlyphWriter {
 private:
@@ -15,7 +15,7 @@ private:
 
     void load_combinations(const std::string& filename);
     std::vector<int> get_attribute_indices(
-        int level,
+        const std::string& level,
         const std::string& school,
         const std::string& duration,
         const std::string& range,
@@ -29,7 +29,7 @@ public:
     ~GlyphWriter() { if(debug_file.is_open()) debug_file.close(); }
 
     void draw_spell(
-        int level,
+        const std::string& level,
         const std::string& school,
         const std::string& duration,
         const std::string& range,
