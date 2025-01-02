@@ -4,7 +4,7 @@ int main() {
     GlyphWriter writer;
     
     writer.draw_spell(
-        "7",                  // Level
+        "0",                  // Level
         "None",       // School
         "1 hour",    // Duration
         "None",         // Range

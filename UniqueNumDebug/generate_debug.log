@@ -1,0 +1,12 @@
+
+Testing binary file read:
+Reading 2192 combinations
+
+Input Array Contents:
+Level Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+School Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Duration Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Range Array: 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+Area Type Array: 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 
+Damage Type Array: 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+Condition Array: 0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 

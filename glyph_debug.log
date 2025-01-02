@@ -1,30 +1,30 @@
 Starting GlyphWriter initialization...
 Loading combinations from: GlyphEngine/unique_combinations.bin
 Opening file: GlyphEngine/unique_combinations.bin
-Reading 32768 combinations
+Reading 2192 combinations
 Finished loading combinations
 
 === Starting draw_spell ===
 
 === Getting Attribute Indices ===
 Input parameters:
-Level: 7
+Level: 0
 School: None
 Duration: None
 Range: None
 Area Type: None
 Damage Type: 1 hour
 Condition: None
-Generated indices: 8 0 13 0 0 15 0 
-Attribute Indices: 8 0 13 0 0 15 0 
+Generated indices: 1 0 13 0 0 15 0 
+Attribute Indices: 1 0 13 0 0 15 0 
 
 Input Array Contents:
-Level Array: 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 
+Level Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 School Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Duration Array: 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 
+Duration Array: 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 
 Range Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 Area Type Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Damage Type Array: 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 
+Damage Type Array: 0 0 0 0 0 0 0 0 0 0 1 1 1 0 1 
 Condition Array: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 
 RenderTexture created and cleared
@@ -51,25 +51,25 @@ Scale: 300
 Offset X: 400
 Offset Y: 400
 
-Drawing line from (140.192,250) to (223.664,157.295)
+Drawing line from (462.374,106.556) to (576.336,157.295)
+Generated 2 line points
+
+Drawing line from (101.643,368.641) to (337.626,106.556)
 Generated 2 line points
 
 Drawing line from (140.192,250) to (462.374,106.556)
 Generated 2 line points
 
-Drawing line from (223.664,157.295) to (576.336,157.295)
+Drawing line from (462.374,106.556) to (698.357,368.641)
 Generated 2 line points
 
-Drawing line from (462.374,106.556) to (698.357,368.641)
+Drawing line from (101.643,368.641) to (659.808,250)
 Generated 2 line points
 
 Drawing line from (140.192,250) to (698.357,368.641)
 Generated 2 line points
 
 Drawing line from (223.664,157.295) to (685.317,492.705)
-Generated 2 line points
-
-Drawing line from (337.626,106.556) to (622.943,600.739)
 Generated 2 line points
 
 Drawing line from (462.374,106.556) to (522.021,674.064)
