@@ -4,9 +4,11 @@
 #include <fstream>
 #include <functional>
 
+// Generates all possible binary strings of given length
 std::vector<std::string> generate_binary_strings(int bit_count) {
     std::vector<std::string> binary_strings;
     
+    // Function to recursively generate binary strings
     std::function<void(int, std::string)> genbin;
     genbin = [&](int n, std::string bs) {
         if (bs.length() == size_t(n)) {
@@ -21,10 +23,12 @@ std::vector<std::string> generate_binary_strings(int bit_count) {
     return binary_strings;
 }
 
+// Rotates a list of integers by a specified number of positions
 std::vector<int> cycle_list(const std::vector<int>& l, int loops = 1) {
     std::vector<int> result = l;
     int n = l.size();
     
+    // Perform rotation loops times
     for(int t = 0; t < loops; t++) {
         std::vector<int> temp(n);
         for(int i = 0; i < n; i++) {
@@ -35,6 +39,7 @@ std::vector<int> cycle_list(const std::vector<int>& l, int loops = 1) {
     return result;
 }
 
+// Converts a string of '0's and '1's to a vector of integers
 std::vector<int> string_to_list(const std::string& s) {
     std::vector<int> result;
     for(char c : s) {
@@ -43,9 +48,11 @@ std::vector<int> string_to_list(const std::string& s) {
     return result;
 }
 
+// Checks if a given combination is a rotational duplicate of existing combinations
 bool is_rotational_duplicate(const std::vector<int>& ref, const std::vector<std::vector<int>>& non_repeating) {
     int N = ref.size();
     
+    // Check against all existing combinations
     for(const auto& existing : non_repeating) {
         for(int n = 0; n < N; n++) {
             if(cycle_list(existing, n + 1) == ref) {
@@ -56,10 +63,12 @@ bool is_rotational_duplicate(const std::vector<int>& ref, const std::vector<std:
     return false;
 }
 
+// Generates unique combinations without rotational duplicates
 std::vector<std::vector<int>> generate_unique_combinations(int L) {
     auto combinations = generate_binary_strings(L);
     std::vector<std::vector<int>> non_repeating;
     
+    // Display progress information
     std::cout << "Generating unique combinations..." << std::endl;
     std::cout << "[" << std::string(50, ' ') << "] 0%" << std::flush;
     
@@ -74,7 +83,7 @@ std::vector<std::vector<int>> generate_unique_combinations(int L) {
             non_repeating.push_back(current);
         }
         
-        // Progress bar
+        // Update progress bar
         int percentage = (i * 100) / combinations.size();
         int pos = (i * 50) / combinations.size();
         std::cout << "\r[" << std::string(pos, '=') << std::string(50-pos, ' ') << "] " 
@@ -85,16 +94,19 @@ std::vector<std::vector<int>> generate_unique_combinations(int L) {
     return non_repeating;
 }
 
+// Test function to verify the binary file contents
 void test_read_combinations(const std::string& filename) {
     std::ifstream file(filename, std::ios::binary);
     std::ofstream debug("generate_debug.log");
     
     debug << "\nTesting binary file read:" << std::endl;
     
+    // Read the total number of combinations
     size_t size;
     file.read(reinterpret_cast<char*>(&size), sizeof(size));
     debug << "Reading " << size << " combinations" << std::endl;
     
+    // Read all combinations from the file
     std::vector<std::vector<int>> test_combinations;
     test_combinations.resize(size);
     
@@ -103,6 +115,7 @@ void test_read_combinations(const std::string& filename) {
         file.read(reinterpret_cast<char*>(test_combinations[i].data()), 15 * sizeof(int));
     }
     
+    // Output the first 7 combinations with their attribute labels
     debug << "\nInput Array Contents:" << std::endl;
     const std::vector<std::string> attributeLabels = {
         "Level", "School", "Duration", "Range", "Area Type", "Damage Type", "Condition"
